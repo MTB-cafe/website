@@ -1,0 +1,78 @@
+{
+  "version": "5",
+  "specifiers": {
+    "npm:eventemitter3@latest": "5.0.4",
+    "npm:iron-enum@latest": "1.8.0",
+    "npm:marked@latest": "18.0.11",
+    "npm:type-fest@latest": "5.9.0"
+  },
+  "npm": {
+    "eventemitter3@5.0.4": {
+      "integrity": "sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw=="
+    },
+    "iron-enum@1.8.0": {
+      "integrity": "sha512-x8Y8s/73L0vy+tjis62de+NplDae/+aOqH1I9tns/7yqNtA2R9uae0heEuT0jcpohyhUEOHU0egaobbms3AIeQ=="
+    },
+    "marked@18.0.11": {
+      "integrity": "sha512-HnslJfsZkRPBDJRHvVtAaWlZHEpSu7u8LgQuJCELjRKuWR+hpq4A7sLq3p8HaI9ypVoXDXxV34CsQJEe1+J5Aw==",
+      "bin": true
+    },
+    "tagged-tag@1.0.0": {
+      "integrity": "sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng=="
+    },
+    "type-fest@5.9.0": {
+      "integrity": "sha512-yANm3Jr3GiJ1qgJlxGAVxTOIcEOk1rhQHamlXtnrCK7EHP4HeM9OGxtMg/W7HFdrVzw/ZWJKGVIJusVH85sLtw==",
+      "dependencies": [
+        "tagged-tag"
+      ]
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:html-inline-script-webpack-plugin@latest",
+      "npm:html-webpack-plugin@latest",
+      "npm:iron-enum@latest",
+      "npm:type-fest@latest",
+      "npm:webpack-cli@latest"
+    ],
+    "links": {
+      "jsr:@glacier/glacier@0.0.0": {
+        "dependencies": [
+          "npm:html-inline-script-webpack-plugin@latest",
+          "npm:html-webpack-plugin@latest",
+          "npm:iron-enum@latest",
+          "npm:marked@latest",
+          "npm:type-fest@latest",
+          "npm:webpack-cli@latest"
+        ]
+      },
+      "jsr:@render-labs/backtopaper@0.0.0": {
+        "dependencies": [
+          "npm:html-inline-script-webpack-plugin@latest",
+          "npm:html-webpack-plugin@latest",
+          "npm:iron-enum@latest",
+          "npm:type-fest@latest",
+          "npm:webpack-cli@latest"
+        ]
+      },
+      "jsr:@render-labs/razzle@0.0.0": {
+        "dependencies": [
+          "npm:@webgpu/types@*",
+          "npm:@webgpu/types@latest",
+          "npm:iron-enum@latest",
+          "npm:type-fest@latest"
+        ]
+      },
+      "jsr:@rynth/rynth@0.0.0": {
+        "dependencies": [
+          "npm:eventemitter3@latest",
+          "npm:html-inline-script-webpack-plugin@latest",
+          "npm:html-webpack-plugin@latest",
+          "npm:iron-enum@latest",
+          "npm:type-fest@latest",
+          "npm:webpack-cli@latest"
+        ]
+      }
+    }
+  }
+}

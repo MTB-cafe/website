@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+	version="1.1"
+	creator="MTB.cafe"
+
+	xmlns="http://www.topografix.com/GPX/1/1"
+
+	xmlns:mtbx="http://mtb.cafe/ns/1.0/mtbx"
+	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation=
+	"
+	http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd
+	http://mtb.cafe/ns/1.0/mtbx file:///home/brendan/Projects/render-labs/app/mtb.cafe/examples/mtbx.xsd
+	"
+>
+	<metadata>
+		<name>Apex Ridge Trail</name>
+		<desc>A scenic and simple singletrack loop with soft climbs and descents.</desc>
+		<author>
+			<name>MTB.cafe Community</name>
+			<email id="mail" domain="mtb.cafe"/>
+			<link href="https://www.mtb.cafe/thank-you"></link>
+		</author>
+		<keywords>
+			mock,demo,example
+		</keywords>
+
+		<bounds minlat="39.7125" maxlat="39.7158" minlon="-105.2410" maxlon="-105.2342"/>
+
+		<extensions>
+			<mtbx:difficulty>easy</mtbx:difficulty>
+
+			<mtbx:waypoint_ref mtbx:id="1" waypoint_type="parking_lot"></mtbx:waypoint_ref>
+
+			<mtbx:notes>
+				<mtbx:issue opened="2026-10-06T19:06:01">
+					Large hole needs to be filled to keep the trail easy for beginners.
+				</mtbx:issue>
+			</mtbx:notes>
+
+			<mtbx:contributors>
+				<!-- My user id is 1 because I am the owner. -->
+				<mtbx:user mtbx:id="1"/>
+			</mtbx:contributors>
+		</extensions>
+	</metadata>
+
+	<wpt lat="39.7125" lon="-105.2341">
+		<name>Main Parking Lot</name>
+		<desc>Main parking lot with restrooms and water station.</desc>
+		<extensions>
+			<mtbx:id>1</mtbx:id>
+		</extensions>
+	</wpt>
+
+	<!-- The Trail Path (Track). -->
+	<trk>
+		<name>Apex Ridge Loop</name>
+		<desc>Main singletrack loop</desc>
+
+		<!-- Always "Mountain Bike". -->
+		<type>Mountain Bike</type>
+
+		<trkseg>
+			<trkpt lat="39.7126" lon="-105.2342">
+				<ele>1845.5</ele>
+
+				<!-- Maybe additional data in these sections? -->
+				<!-- ... -->
+			</trkpt>
+			<trkpt lat="39.7135" lon="-105.2355">
+				<ele>1862.1</ele>
+			</trkpt>
+			<trkpt lat="39.7148" lon="-105.2378">
+				<ele>1895.4</ele>
+			</trkpt>
+			<trkpt lat="39.7158" lon="-105.2395">
+				<ele>1920.5</ele>
+			</trkpt>
+			<trkpt lat="39.7152" lon="-105.2410">
+				<ele>1945.0</ele>
+
+				<extensions>
+					<mtbx:feature_ptr mtbx:id="1"/>
+				</extensions>
+			</trkpt>
+			<trkpt lat="39.7140" lon="-105.2385">
+				<ele>1910.2</ele>
+			</trkpt>
+			<trkpt lat="39.7126" lon="-105.2342">
+				<ele>1845.5</ele>
+			</trkpt>
+
+		</trkseg>
+	</trk>
+
+	<extensions>
+		<mtbx:features>
+			<mtbx:feature type="jump" mtbx:id="1">
+				<!-- Optional title. -->
+				<mtbx:title>Turtle Jump</mtbx:title>
+
+				<!-- Optional description. -->
+				<mtbx:details>
+					This jump is very forgiving- nice for new riders.
+				</mtbx:details>
+				
+				<!-- Optional difficulty. -->
+				<mtbx:difficulty>easy</mtbx:difficulty>
+			</mtbx:feature>
+		</mtbx:features>
+	</extensions>
+</gpx>

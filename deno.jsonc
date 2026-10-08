@@ -1,0 +1,51 @@
+{
+	"name": "mtb.cafe",
+	"version": "0.0.0",
+
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "deno.ns"],
+
+		"jsx": "react-jsx",
+		"jsxImportSource": "rynth",
+	},
+	"lint": {
+		"rules": {
+			"exclude": [
+				"jsx-key",
+				
+			],
+		},
+	},
+
+
+	"imports": {
+		// Internal path aliases.
+		"#~/": "./src/",
+		"#i18n/": "./i18n/",
+		"#tests/": "./tests/",
+
+		"rynth": "../../rynth/src/index.ts",
+		"rynth/jsx-runtime": "../../rynth/src/jsx-runtime.ts",
+
+
+		// Dependencies.
+		// "colorjs.io": "npm:colorjs.io@latest",
+		"iron-enum": "npm:iron-enum@latest",
+		"type-fest": "npm:type-fest@latest",
+
+		
+		// Dev Dependencies.
+		"html-inline-script-webpack-plugin": "npm:html-inline-script-webpack-plugin@latest",
+		"html-webpack-plugin": "npm:html-webpack-plugin@latest",
+		"webpack-cli": "npm:webpack-cli@latest",
+	},
+	"exports": {
+		".": "./src/index.ts",
+
+		"./jsx-runtime": "./src/jsx-runtime.ts",
+	},
+
+	"tasks": {
+		"build": "bash scripts/build.sh",
+	},
+}

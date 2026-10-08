@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://mtb.cafe/ns/1.0/mtbx"
+	xmlns:mtbx="http://mtb.cafe/ns/1.0/mtbx"
+	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	elementFormDefault="qualified"
+>
+	<!-- ================================================= -->
+	<!-- Simple Types                                      -->
+	<!-- ================================================= -->
+	
+	<xs:simpleType name="DifficultyType">
+		<xs:annotation>
+			<xs:documentation>Standardized difficulty levels for trails and features.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="easy"/>
+			<xs:enumeration value="medium"/>
+			<xs:enumeration value="hard"/>
+			<xs:enumeration value="expert"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="FeatureType">
+		<xs:annotation>
+			<xs:documentation>Type of a feature.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="drop"></xs:enumeration>
+			<xs:enumeration value="jump"></xs:enumeration>
+
+			<xs:enumeration value="other"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- ================================================= -->
+	<!-- Custom Extension Elements                         -->
+	<!-- ================================================= -->
+
+	<xs:element name="difficulty" type="mtbx:DifficultyType">
+		<xs:annotation>
+			<xs:documentation>Trail or feature difficulty rating.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="notes">
+		<xs:annotation>
+			<xs:documentation>Container for notes.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="issue" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Trail issue/maintenance note.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="opened" type="xs:dateTime" use="required"></xs:attribute>
+								<xs:attribute name="closed" type="xs:dateTime" use="optional"></xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="contributors">
+		<xs:annotation>
+			<xs:documentation>Container for file contributors.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="user" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute ref="mtbx:id" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="title" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Contains a title.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="details" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Contains details.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:attribute name="id" type="xs:integer">
+		<xs:annotation>
+			<xs:documentation>Contains an ID.</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+
+
+	<xs:element name="waypoint_ref">
+		<xs:annotation>
+			<xs:documentation>Reference to a waypoint.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute ref="mtbx:id" use="required"/>
+			<xs:attribute name="waypoint_type" type="xs:string" use="required"/> <!-- TODO: ... -->
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="feature_ref">
+		<xs:annotation>
+			<xs:documentation>Reference connecting a track point to a specific feature ID.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute ref="mtbx:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="features">
+		<xs:annotation>
+			<xs:documentation>Collection of specific trail features (e.g., jumps, drops).</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="feature" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="mtbx:title" minOccurs="0"/>
+							<xs:element ref="mtbx:details" minOccurs="0"/>
+							<xs:element name="difficulty" type="mtbx:DifficultyType" minOccurs="0"/>
+						</xs:sequence>
+						<xs:attribute name="type" type="mtbx:FeatureType" use="required"/>
+						<xs:attribute ref="mtbx:id" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

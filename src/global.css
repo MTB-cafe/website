@@ -1,0 +1,285 @@
+/*
+ * Fonts.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+	font-family: 'Magnat';
+	src: url('../assets/Magnat.otf') format('opentype');
+}
+
+/*
+ * Global layer.
+ */
+
+@layer base {
+
+	/*
+	* Variable declarations.
+	*/
+
+	:root {
+		/* Programatic Variables. */
+
+		--top: 1;
+
+		/* Colors. */
+
+		--primary-color: #329fe8;
+
+		--unified-color: #888888;
+
+		/* Fonts. */
+		
+		--magnat-font: 'Magnat', 'Courier New', 'Courier', 'monospace';
+		--monospace-font: 'ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
+	}
+
+	/*
+	 * Light / Dark mode.
+	 */
+	
+	/* Light. */
+	@media (prefers-color-scheme: light) {
+		:root {
+			--background-color: #f0f0f0;
+			--foreground-color: #0f0f0f;
+		}
+	}
+
+	/* Dark. */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--background-color: #0f0f0f;
+			--foreground-color: #f0f0f0;
+		}
+	}
+
+	::selection {
+		background: var(--primary-color);
+		color: whitesmoke;
+	}
+
+	* {
+		margin: 0px;
+		padding: 0px;
+
+		/*white-space: pre-line;*/
+
+		scrollbar-color: var(--primary-color) color-mix(in oklab, var(--background-color), var(--unified-color) 10%);
+	}
+
+	body {
+		/*height: 100%;*/ /* This breaks things! */
+		margin: 0px;
+
+		background: var(--background-color);
+		color: var(--foreground-color);
+
+		font-family: 'Newsreader', 'serif';
+
+	}
+
+	ul {
+		position: relative;
+
+		list-style: none;
+		padding: 0px;
+	}
+
+	li {
+		position: relative;
+
+		padding-left: 25px;
+		margin-bottom: 10px;
+	}
+
+	li::before {
+		content: "";
+		position: absolute;
+
+		left: 0px;
+		top: 50%;
+		transform: translateY(-50%); /* Perfectly centers the box vertically. */
+		width: 0.5rem;
+		height: 0.5rem;
+		background-color: var(--primary-color);
+	}
+
+	blockquote {
+		padding: 0rem 0rem 0rem 1rem;
+
+		border-left: solid 4px var(--primary-color);
+
+		background-color: color-mix(in oklab, var(--background-color), var(--unified-color) 10%);
+	}
+
+	button {
+		background: var(--foreground-color);
+		color: var(--background-color);
+	
+		padding: 20px;
+	
+		margin: 10px;
+	
+		border-radius: 0%;
+		border: none;
+	
+		outline: 2px solid var(--unified-color);
+		outline-offset: 0px;
+	
+		transition: all ease 0.1s;
+	
+		&:is(:hover, :focus) {
+			background: var(--primary-color);
+			color: whitesmoke;
+	
+			outline: 2px solid var(--primary-color);
+			outline-offset: 2px;
+		}
+	}
+
+	glacier-anchor {
+		&:is(:hover, :focus) {
+			color: var(--primary-color);
+		}
+	}
+
+	#header {
+		position: sticky;
+		top: 0px;
+
+		isolation: isolate;
+		z-index: var(--top);
+
+		font-family: var(--magnat-font);
+		font-weight: normal;
+
+		padding: 15px;
+
+		backdrop-filter: blur(10px);
+
+		& > .x-title {
+			font-weight: bold;
+		}
+	}
+
+	#content {
+		padding: 2rem;
+	}
+
+	#footer {
+		margin: 0px;
+		bottom: 0px;
+
+		padding: 1rem 3rem 1rem 3rem;
+
+		background: color-mix(in oklab, var(--background-color), var(--unified-color) 10%);
+
+		font-family: var(--monospace-font);
+		font-size: small;
+
+		& > glacier-text {
+			color: color-mix(in oklab, var(--foreground-color), var(--unified-color) 25%);
+
+			font-size: smaller;
+		}
+	}
+}
+
+/*
+ * Landing.
+ */
+.hero {
+	height: 100dvh;
+	width: 100%;
+
+	display: grid;
+
+	place-items: center;
+}
+
+/*
+ * Epic Text.
+ */
+.epic-text {
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+
+	&::after {
+		content: '_'; /* Typewriter cursor. */
+
+		font-size: 2em;
+		
+		color: var(--primary-color);
+
+		animation: blink-caret .75s step-end infinite;
+	}
+
+	& > * {
+		/*display: inline-block;*/ /* So the text can move off the screen. */
+	
+		font-size: 2em;
+		font-family: var(--magnat-font);
+	
+	}
+
+	& > .x-description {
+		overflow: hidden; /* Ensures text stays hidden until revealed. */
+		margin: 0 auto;
+		white-space: nowrap; /* Keeps content on one line. */
+	
+		color: var(--primary-color);
+		
+	
+		font-weight: bold;
+		/*letter-spacing: .15em;*/;
+	
+		
+		animation: typing 3.5s steps(13, end) forwards,
+	}
+}
+
+@keyframes typing {
+	from { width: 0 }
+	to { width: 1 }
+}
+
+@keyframes blink-caret {
+	from, to { color: transparent; }
+	50% { color: var(--unified-color); }
+}
+
+/*
+ * Cards.
+ */
+.card-container {
+	background: var(--foreground-color);
+
+	margin: 20px; /* Ensure there is enough area for the hover effect. */
+
+	& > .card {
+		background: var(--background-color);
+
+		color: var(--foreground-color);
+		
+		border: solid grey 1px;
+
+		align-content: center;
+
+		padding: 15px;
+
+		transform: translate(-5px, -5px);
+
+		transition: 
+			transform 0.15s ease
+		;
+
+		&:hover {
+			transform: translate(-10px, -10px);
+		}
+	}
+}
