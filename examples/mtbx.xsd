@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://mtb.cafe/ns/1.0/mtbx"
-	xmlns:mtbx="http://mtb.cafe/ns/1.0/mtbx"
+	targetNamespace="http://std.mtb.cafe/0.0/mtbx"
+	xmlns:mtbx="http://std.mtb.cafe/0.0/mtbx"
 	
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
@@ -28,10 +28,10 @@
 			<xs:documentation>Type of a feature.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="drop"></xs:enumeration>
-			<xs:enumeration value="jump"></xs:enumeration>
+			<xs:enumeration value="drop"/>
+			<xs:enumeration value="jump"/>
 
-			<xs:enumeration value="other"></xs:enumeration>
+			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -58,8 +58,8 @@
 					<xs:complexType>
 						<xs:simpleContent>
 							<xs:extension base="xs:string">
-								<xs:attribute name="opened" type="xs:dateTime" use="required"></xs:attribute>
-								<xs:attribute name="closed" type="xs:dateTime" use="optional"></xs:attribute>
+								<xs:attribute name="opened" type="xs:dateTime" use="required"/>
+								<xs:attribute name="closed" type="xs:dateTime" use="optional"/>
 							</xs:extension>
 						</xs:simpleContent>
 					</xs:complexType>
@@ -96,11 +96,7 @@
 		</xs:annotation>
 	</xs:element>
 
-	<xs:attribute name="id" type="xs:integer">
-		<xs:annotation>
-			<xs:documentation>Contains an ID.</xs:documentation>
-		</xs:annotation>
-	</xs:attribute>
+	<xs:attribute name="id" type="xs:integer"/>
 
 
 	<xs:element name="waypoint_ref">

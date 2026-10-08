@@ -5,18 +5,18 @@
 
 	xmlns="http://www.topografix.com/GPX/1/1"
 
-	xmlns:mtbx="http://mtb.cafe/ns/1.0/mtbx"
+	xmlns:mtbx="http://std.mtb.cafe/0.0/mtbx"
 	
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
 	xsi:schemaLocation=
 	"
 	http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd
-	http://mtb.cafe/ns/1.0/mtbx file:///home/brendan/Projects/render-labs/app/mtb.cafe/examples/mtbx.xsd
+	http://std.mtb.cafe/0.0/mtbx http://std.mtb.cafe/0.0/mtbx.xsd
 	"
 >
 	<metadata>
-		<name>Apex Ridge Trail</name>
+		<name>Apex Ridge Trail (Demo)</name>
 		<desc>A scenic and simple singletrack loop with soft climbs and descents.</desc>
 		<author>
 			<name>MTB.cafe Community</name>
